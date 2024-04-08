@@ -9,16 +9,8 @@ public class ValidarNumeros {
 
     public static void main(String[] args) {
 
-        System.out.println("Introduce un número");
-        Scanner sc = new Scanner(System.in);
-        ValidacionDeNumero v = new ValidacionDeNumero();
-        int num = sc.nextInt();
-        while (num != numeroFinal) {
-            System.out.println("Introduce un número");
-            
-                    num = sc.nextInt();
-            v.valido.numeroParOImpar(num);
-        }
+        ValidacionDeNumero cp = new ValidacionDeNumero();
+        cp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 

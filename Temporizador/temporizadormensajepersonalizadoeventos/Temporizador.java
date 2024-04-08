@@ -10,12 +10,12 @@ public class Temporizador extends JFrame {
     int num_veces = 0;
     Timer tiempo;
     JTextArea miArea;
-   
-    
 
     public Temporizador() {
-        setBounds(500,500,500,500);
+
+        setBounds(500, 500, 500, 500);
         setVisible(true);
+        setLayout(new FlowLayout());
         miArea = new JTextArea(6, 20);
         add(new JScrollPane(miArea));
         tiempo = new Timer(delay, new ActionListener() {
@@ -23,18 +23,19 @@ public class Temporizador extends JFrame {
             public void actionPerformed(ActionEvent ae) {
                 num_veces++;
                 if (num_veces < 3) {
-                    miArea.setText("No has llegado a las 3 veces");
+                    miArea.append("Este mensaje ha salido " + num_veces + " veces\n");
                 } else if (num_veces >= 3 && num_veces < 7) {
-                    miArea.setText("No has llegado a las 7 veces");
-                } else if (num_veces > 7 && num_veces < 10) {
-                   miArea.setText("No has llegado a las 10 veces");
+                    miArea.append("Este mensaje ha salido " + num_veces + " veces\n");
+                } else if (num_veces >= 7 && num_veces < 10) {
+                    miArea.append("Este mensaje ha salido " + num_veces + " veces\n");
                 } else if (num_veces == 10) {
-                    miArea.setText("has llegado al limite");
+                    miArea.append("Vaya, parece que has llegado al límite, cierra la ventana para apagar el programa\n");
                     tiempo.stop();
                 }
             }
         });
 
         tiempo.start();
+
     }
 }
